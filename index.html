@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butts Games - Web Games Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #9C27B0, #E91E63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .tagline { color: #888; font-size: 1.2rem; }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .game-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+        }
+        .game-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, #9C27B0 0%, #E91E63 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .game-info { padding: 1.5rem; }
+        .game-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .game-desc { color: #888; font-size: 0.9rem; line-height: 1.6; }
+        .game-tags { margin-top: 1rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(156, 39, 176, 0.2);
+            color: #E91E63;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        .play-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #9C27B0, #E91E63);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .play-btn:hover { transform: scale(1.05); }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        footer a { color: #9C27B0; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Butts Games</h1>
+            <p class="tagline">Web games that push boundaries</p>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card" onclick="window.location.href='https://glb-game.vercel.app'">
+                <div class="game-thumbnail">&#127918;</div>
+                <div class="game-info">
+                    <h3 class="game-title">GLB</h3>
+                    <p class="game-desc">An immersive canvas-based adventure game with stunning visuals and engaging gameplay.</p>
+                    <div class="game-tags">
+                        <span class="tag">Canvas</span>
+                        <span class="tag">Adventure</span>
+                    </div>
+                    <a href="https://glb-game.vercel.app" class="play-btn">Play Now</a>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="window.location.href='https://butts-cards.vercel.app'">
+                <div class="game-thumbnail">&#127183;</div>
+                <div class="game-info">
+                    <h3 class="game-title">Butts Cards</h3>
+                    <p class="game-desc">A strategic card game with unique mechanics and competitive multiplayer modes.</p>
+                    <div class="game-tags">
+                        <span class="tag">Cards</span>
+                        <span class="tag">Strategy</span>
+                    </div>
+                    <a href="https://butts-cards.vercel.app" class="play-btn">Play Now</a>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="window.location.href='https://butts-puzzle.vercel.app'">
+                <div class="game-thumbnail">&#129513;</div>
+                <div class="game-info">
+                    <h3 class="game-title">Butts Puzzle</h3>
+                    <p class="game-desc">Mind-bending puzzles that challenge your logic and problem-solving skills.</p>
+                    <div class="game-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Logic</span>
+                    </div>
+                    <a href="https://butts-puzzle.vercel.app" class="play-btn">Play Now</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>A <a href="https://butts-studios.com">Butts Studios</a> Production</p>
+        </footer>
+    </div>
+</body>
+</html>
