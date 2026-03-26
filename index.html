@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://portal.buttsstudios.com/" />
     <title>Butts Games - Web Games Hub</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="description" content="Play our collection of free web-based games. Puzzles, cards, and more browser games from Butts Studios.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portal.buttsstudios.com/" />
+    <meta property="og:title" content="Butts Games - Web Games Hub" />
+    <meta property="og:description" content="Play our collection of free web-based games. Puzzles, cards, and more browser games from Butts Studios." />
+    <meta property="og:image" content="https://portal.buttsstudios.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Butts Studios" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@buttsstudios" />
+    <meta name="twitter:creator" content="@buttsstudios" />
+    <meta name="twitter:url" content="https://portal.buttsstudios.com/" />
+    <meta name="twitter:title" content="Butts Games - Web Games Hub" />
+    <meta name="twitter:description" content="Play our collection of free web-based games. Puzzles, cards, and more browser games from Butts Studios." />
+    <meta name="twitter:image" content="https://portal.buttsstudios.com/og-image.jpg" />
+
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="false" />
+
+    <!-- Theme & Mobile -->
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Butts Games" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -75,6 +108,21 @@
             transition: transform 0.2s;
         }
         .play-btn:hover { transform: scale(1.05); }
+        .buy-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-left: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.2s;
+        }
+        .buy-btn:hover { transform: scale(1.05); }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
         footer {
             text-align: center;
             padding: 3rem;
@@ -100,7 +148,10 @@
                         <span class="tag">Canvas</span>
                         <span class="tag">Adventure</span>
                     </div>
-                    <a href="https://glb-game.vercel.app" class="play-btn">Play Now</a>
+                    <div class="btn-row">
+                        <a href="https://glb-game.vercel.app" class="play-btn">Play Free</a>
+                        <a href="https://buy.stripe.com/4gMaEQ1qj7Ugc8V59t7Re01" class="buy-btn">Unlock Full - $4.99</a>
+                    </div>
                 </div>
             </div>
 
@@ -113,7 +164,10 @@
                         <span class="tag">Cards</span>
                         <span class="tag">Strategy</span>
                     </div>
-                    <a href="https://butts-cards.vercel.app" class="play-btn">Play Now</a>
+                    <div class="btn-row">
+                        <a href="https://butts-cards.vercel.app" class="play-btn">Play Free</a>
+                        <a href="https://buy.stripe.com/4gMaEQ1qj7Ugc8V59t7Re02" class="buy-btn">Unlock Full - $2.99</a>
+                    </div>
                 </div>
             </div>
 
@@ -126,13 +180,16 @@
                         <span class="tag">Puzzle</span>
                         <span class="tag">Logic</span>
                     </div>
-                    <a href="https://butts-puzzle.vercel.app" class="play-btn">Play Now</a>
+                    <div class="btn-row">
+                        <a href="https://butts-puzzle.vercel.app" class="play-btn">Play Free</a>
+                        <a href="https://buy.stripe.com/4gMaEQ1qj7Ugc8V59t7Re03" class="buy-btn">Unlock Full - $2.99</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>A <a href="https://butts-studios.com">Butts Studios</a> Production</p>
+            <p>A <a href="https://buttsstudios.com">Butts Studios</a> Production</p>
         </footer>
     </div>
 </body>
