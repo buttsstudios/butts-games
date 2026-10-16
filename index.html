@@ -38,159 +38,132 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Butts Games" />
     <style>
+        /* Games hub, in the buttsstudios.com editorial language (games.html is the reference): tracked eyebrow,
+           Archivo 800 display, Newsreader lede, numbered hairline plates and slate rows, one accent.
+           Rules: radius <= 4px, no pills, full even borders only. */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bs-ink-2);
-            color: #fff;
-            min-height: 100vh;
+        body { font-family: var(--bs-display); background: #000; color: var(--bs-bone); min-height: 100vh; -webkit-text-size-adjust: 100%; }
+        a { color: inherit; text-decoration: none; }
+        :focus-visible { outline: 2px solid var(--bs-accent); outline-offset: 2px; }
+        .wrap { max-width: var(--bs-max); margin: 0 auto; padding: 0 var(--bs-gutter); }
+        .hero { padding-block: clamp(48px, 10vw, 120px) clamp(36px, 6vw, 64px); border-bottom: 1px solid var(--bs-line); }
+        .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--bs-muted); margin-bottom: 14px; }
+        .display { font-weight: 800; font-size: clamp(56px, 11vw, 144px); line-height: .9; letter-spacing: -.04em; }
+        .accent { color: var(--bs-accent); }
+        .hero-row { display: flex; justify-content: space-between; align-items: end; gap: 24px 32px; flex-wrap: wrap; margin-top: 36px; }
+        .lede { font-family: var(--bs-serif); font-size: clamp(20px, 2.3vw, 26px); line-height: 1.4; max-width: 34ch; color: var(--bs-bone-2); }
+        .hero-meta { display: grid; gap: 4px; font-size: 14px; color: var(--bs-muted); }
+        .hero-meta strong { color: var(--bs-bone); font-weight: 700; margin-right: 4px; }
+        .section { padding-block: clamp(40px, 7vw, 80px) 0; }
+        .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 28px; }
+        .section-head h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 800; letter-spacing: -.02em; }
+        .section-head p { color: var(--bs-muted); max-width: 46ch; line-height: 1.5; }
+
+        .plates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--bs-line); }
+        .plate { display: grid; grid-template-rows: auto 1fr auto auto auto; aspect-ratio: 4 / 5; padding: 22px; border-right: 1px solid var(--bs-line); transition: background .2s; }
+        .plate:last-child { border-right: 0; }
+        .plate:hover { background: var(--bs-ink-3); }
+        .plate:hover .plate-name { color: var(--bs-accent); }
+        .plate-no { font: 600 12px/1 var(--bs-display); letter-spacing: .14em; color: var(--bs-muted); }
+        .plate-art { align-self: center; justify-self: center; display: block; width: clamp(110px, 13vw, 170px); color: var(--bs-bone); }
+        .plate-art svg { width: 100%; height: auto; display: block; }
+        .plate-name { font: 800 clamp(26px, 2.6vw, 36px)/1 var(--bs-display); letter-spacing: -.02em; transition: color .15s; }
+        .plate-kind { margin-top: 6px; font-size: 13px; color: var(--bs-muted); }
+        .plate-foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--bs-line); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--bs-muted); }
+
+        .slate { list-style: none; display: grid; gap: 1px; background: var(--bs-line); border: 1px solid var(--bs-line); }
+        .title-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 24px; align-items: start; background: #000; padding: 28px clamp(16px, 2.5vw, 32px); }
+        .title-row .no { font-weight: 800; font-size: 14px; color: var(--bs-muted); padding-top: 8px; }
+        .title-row h3 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 800; line-height: 1.02; letter-spacing: -.02em; }
+        .title-row .kind { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--bs-muted); margin-top: 10px; font-weight: 600; }
+        .title-row .logline { font-family: var(--bs-serif); font-size: 18px; line-height: 1.45; color: var(--bs-bone-2); }
+        .acts { display: grid; gap: 8px; min-width: 200px; }
+        .btn { display: block; text-align: center; padding: 12px 18px; border-radius: 2px; font-weight: 700; font-size: 14px; letter-spacing: .04em; border: 1px solid transparent; transition: background .15s, border-color .15s; }
+        .btn-play { background: var(--bs-bone); color: var(--bs-ink); }
+        .btn-play:hover { background: var(--bs-accent); }
+        .btn-buy { border-color: var(--bs-line); color: var(--bs-bone); }
+        .btn-buy:hover { border-color: var(--bs-gold); color: var(--bs-gold); }
+        .note { margin-top: 28px; color: var(--bs-muted); font-size: 13px; line-height: 1.5; max-width: 70ch; padding-bottom: clamp(48px, 8vw, 96px); }
+
+        @media (max-width: 900px) {
+            .plates { grid-template-columns: 1fr; }
+            .plate { border-right: 0; border-bottom: 1px solid var(--bs-line); aspect-ratio: auto; min-height: 260px; }
+            .plate:last-child { border-bottom: 0; }
+            .title-row { grid-template-columns: 40px minmax(0, 1fr); }
+            .title-row .logline, .title-row .acts { grid-column: 2; }
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        header {
-            text-align: left;
-            padding: 3rem 0;
+        @media (max-width: 520px) {
+            .title-row { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+            .title-row .no { padding-top: 0; }
+            .title-row .logline, .title-row .acts { grid-column: 1; }
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: var(--bs-bone);
-        }
-        .tagline { color: #888; font-size: 1.2rem; }
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .game-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--bs-line);
-            border-radius: 2px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .game-card:hover {
-            border-color: var(--bs-accent);
-        }
-        .game-thumbnail {
-            height: 200px;
-            background: var(--bs-ink-3);
-            color: var(--bs-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-        .game-info { padding: 1.5rem; }
-        .game-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .game-desc { color: #888; font-size: 0.9rem; line-height: 1.6; }
-        .game-tags { margin-top: 1rem; }
-        .tag {
-            display: inline-block;
-            background: color-mix(in srgb, var(--bs-accent) 20%, transparent);
-            color: var(--bs-accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 2px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-        }
-        .play-btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.75rem 2rem;
-            background: var(--bs-accent);
-            color: var(--bs-ink);
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        .play-btn:hover { filter: brightness(1.08); }
-        .buy-btn {
-            display: inline-block;
-            margin-top: 0.5rem;
-            margin-left: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--bs-gold);
-            color: var(--bs-ink);
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: transform 0.2s;
-        }
-        .buy-btn:hover { filter: brightness(1.08); }
-        .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-        footer a { color: var(--bs-accent); text-decoration: none; }
     </style>
 <!--bs:head--><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="studios-section.css"><!--/bs:head-->
 </head>
 <body>
 <!--bs:bar--><div class="bs-bar" role="banner"><div class="bs-bar-in"><a class="bs-mark" href="https://buttsstudios.com/" aria-label="Butts Studios home"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="12"><rect x="10" y="10" width="80" height="80"/><path d="M10 10 L90 90 M90 10 L10 90"/></g></svg><span>Butts Studios</span></a><span class="bs-crumb"><span class="bs-sep">/</span><a class="bs-sec" href="https://buttsstudios.com/games.html"><i class="bs-dot"></i>Games</a></span><div class="bs-nav" role="navigation" aria-label="Butts Studios sections"><a href="https://buttsstudios.com/books.html">Books</a><a href="https://buttsstudios.com/video.html">Video</a><a href="https://buttsstudios.com/games.html" aria-current="true">Games</a></div></div></div><!--/bs:bar-->
-<div class="container">
-        <header>
-            <h1>Games<span class="accent">.</span></h1>
-            <p class="tagline">Small games made with the same care as everything else here: clear rules, clean screens, and nothing in the way of playing.</p>
-        </header>
 
-        <div class="games-grid">
-            <div class="game-card" onclick="window.location.href='https://glb.buttsstudios.com'">
-                <div class="game-thumbnail">&#9698;</div>
-                <div class="game-info">
-                    <h3 class="game-title">GLB</h3>
-                    <p class="game-desc">A canvas game for the browser: move with the arrow keys or WASD, collect what's on the board and avoid the obstacles.</p>
-                    <div class="game-tags">
-                        <span class="tag">Canvas</span>
-                        <span class="tag">Adventure</span>
-                    </div>
-                    <div class="btn-row">
-                        <a href="https://glb.buttsstudios.com" class="play-btn">Try It</a>
-                        <a href="__NEW_PAYMENT_LINK_GLB_5__" class="buy-btn">Unlock Full: $5 one-time</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="window.location.href='https://cards.buttsstudios.com'">
-                <div class="game-thumbnail">&#9635;</div>
-                <div class="game-info">
-                    <h3 class="game-title">Card Battle</h3>
-                    <p class="game-desc">A strategy card game, played in the browser.</p>
-                    <div class="game-tags">
-                        <span class="tag">Cards</span>
-                        <span class="tag">Strategy</span>
-                    </div>
-                    <div class="btn-row">
-                        <a href="https://cards.buttsstudios.com" class="play-btn">Try It</a>
-                        <a href="__NEW_PAYMENT_LINK_CARDS_3__" class="buy-btn">Unlock Full: $3 one-time</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="window.location.href='https://puzzle.buttsstudios.com'">
-                <div class="game-thumbnail">&#8862;</div>
-                <div class="game-info">
-                    <h3 class="game-title">Sliding Numbers</h3>
-                    <p class="game-desc">The classic sliding-tile puzzle, set cleanly: put the numbers back in order in as few moves as you can.</p>
-                    <div class="game-tags">
-                        <span class="tag">Puzzle</span>
-                        <span class="tag">Logic</span>
-                    </div>
-                    <div class="btn-row">
-                        <a href="https://puzzle.buttsstudios.com" class="play-btn">Try It</a>
-                        <a href="__NEW_PAYMENT_LINK_PUZZLE_3__" class="buy-btn">Unlock Full: $3 one-time</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
+<main>
+  <section class="wrap hero">
+    <p class="eyebrow">Butts Studios · Games</p>
+    <h1 class="display">Games<span class="accent">.</span></h1>
+    <div class="hero-row">
+      <p class="lede">Small games made with the same care as everything else here: clear rules, clean screens, and nothing in the way of playing.</p>
+      <div class="hero-meta"><span><strong>3</strong> games</span><span><strong>Web</strong> no install</span></div>
     </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="plates" aria-label="The games">
+        <a class="plate" href="https://glb.buttsstudios.com">
+          <span class="plate-no">01</span>
+          <span class="plate-art"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 114 L114 6 L114 114 Z" fill="currentColor"/><rect x="30" y="30" width="14" height="14" fill="var(--bs-accent)"/></svg></span>
+          <span class="plate-name">GLB</span>
+          <span class="plate-kind">Canvas adventure</span>
+          <span class="plate-foot"><span>In the browser · Full game $5</span><span>Play ↗</span></span>
+        </a>
+        <a class="plate" href="https://cards.buttsstudios.com">
+          <span class="plate-no">02</span>
+          <span class="plate-art"><svg viewBox="0 0 120 120" aria-hidden="true"><g transform="rotate(-8 40 64)"><rect x="14" y="22" width="52" height="74" rx="3" fill="var(--bs-bone)"/><text x="22" y="44" font-family="Archivo, sans-serif" font-weight="800" font-size="18" fill="#B23A22">K</text></g><rect x="44" y="18" width="52" height="74" rx="3" fill="#000" stroke="var(--bs-gold)" stroke-width="2"/><text x="70" y="64" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-size="30" fill="var(--bs-gold)">5</text><g transform="rotate(7 92 70)"><rect x="70" y="34" width="44" height="64" rx="3" fill="var(--bs-bone)" opacity=".92"/><text x="77" y="54" font-family="Archivo, sans-serif" font-weight="800" font-size="16" fill="#050707">Q</text></g></svg></span>
+          <span class="plate-name">Card Battle</span>
+          <span class="plate-kind">Strategy card game</span>
+          <span class="plate-foot"><span>In the browser · Full game $3</span><span>Play ↗</span></span>
+        </a>
+        <a class="plate" href="https://puzzle.buttsstudios.com">
+          <span class="plate-no">03</span>
+          <span class="plate-art"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" fill="none" stroke="currentColor" stroke-width="2"/><g fill="currentColor"><rect x="14" y="14" width="28" height="28"/><rect x="46" y="14" width="28" height="28"/><rect x="78" y="14" width="28" height="28"/><rect x="14" y="46" width="28" height="28"/><rect x="46" y="46" width="28" height="28"/><rect x="78" y="46" width="28" height="28"/><rect x="14" y="78" width="28" height="28"/><rect x="46" y="78" width="28" height="28"/></g><rect x="78" y="78" width="28" height="28" fill="var(--bs-accent)"/></svg></span>
+          <span class="plate-name">Sliding Numbers</span>
+          <span class="plate-kind">Logic puzzle</span>
+          <span class="plate-foot"><span>In the browser · Full game $3</span><span>Play ↗</span></span>
+        </a>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head"><h2>The index</h2><p>Every game, what it is, and what the one-time unlock opens.</p></div>
+    <ol class="slate">
+        <li class="title-row">
+          <span class="no">01</span>
+          <div><h3>GLB</h3><div class="kind">Canvas adventure</div></div>
+          <p class="logline">A canvas game for the browser: move with the arrow keys or WASD, collect what's on the board and avoid the obstacles.</p>
+          <div class="acts"><a class="btn btn-play" href="https://glb.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_GLB_5__">Unlock Full: $5 one-time</a></div>
+        </li>
+        <li class="title-row">
+          <span class="no">02</span>
+          <div><h3>Card Battle</h3><div class="kind">Strategy card game</div></div>
+          <p class="logline">Six cards each, six prizes on the table. You and the opponent choose at the same moment; the higher card takes the points. Three opponents and a ladder of rivals with house rules.</p>
+          <div class="acts"><a class="btn btn-play" href="https://cards.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_CARDS_3__">Unlock Full: $3 one-time</a></div>
+        </li>
+        <li class="title-row">
+          <span class="no">03</span>
+          <div><h3>Sliding Numbers</h3><div class="kind">Logic puzzle</div></div>
+          <p class="logline">The classic sliding-tile puzzle, set cleanly: put the numbers back in order in as few moves as you can.</p>
+          <div class="acts"><a class="btn btn-play" href="https://puzzle.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_PUZZLE_3__">Unlock Full: $3 one-time</a></div>
+        </li>
+    </ol>
+    <p class="note">The one-time unlock is verified with the payment and kept in that browser.</p>
+  </section>
+</main>
 <!--bs:foot--><div class="bs-foot" role="contentinfo"><div class="bs-foot-in"><div><a class="bs-mark" href="https://buttsstudios.com/" aria-label="Butts Studios home"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="12"><rect x="10" y="10" width="80" height="80"/><path d="M10 10 L90 90 M90 10 L10 90"/></g></svg><span>Butts Studios</span></a><div class="bs-foot-line">Made of story.</div></div><div class="bs-foot-cols" role="navigation" aria-label="Butts Studios"><a href="https://buttsstudios.com/books.html">Books</a><a href="https://buttsstudios.com/video.html">Video</a><a href="https://buttsstudios.com/games.html" aria-current="true">Games</a><a href="https://buttsstudios.com/">Studio</a><a href="https://www.instagram.com/buttsstudios/" target="_blank" rel="noopener">Instagram</a></div></div><div class="bs-foot-base"><span>© 2026 Butts Studios</span><span class="bs-legal"><a href="https://buttsstudios.com/terms.html">Terms</a><a href="https://buttsstudios.com/refunds.html">Refunds</a><a href="https://buttsstudios.com/privacy.html">Privacy</a></span></div></div><!--/bs:foot-->
 </body>
 </html>
