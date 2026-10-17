@@ -2,5 +2,13 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "installCommand": null
+  "installCommand": null,
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/refund",
+      "destination": "/refunds",
+      "permanent": true
+    }
+  ]
 }

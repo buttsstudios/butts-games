@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://portal.buttsstudios.com/" />
+    <link rel="canonical" href="https://games.buttsstudios.com/" />
     <title>Butts Games - Web Games Hub</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <meta name="description" content="Play our collection of web-based games. Puzzles, cards, and more browser games from Butts Studios.">
+    <meta name="description" content="Play our collection of browser games: puzzles, cards and more from Butts Studios. Try each game, then unlock the full version.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://portal.buttsstudios.com/" />
+    <meta property="og:url" content="https://games.buttsstudios.com/" />
     <meta property="og:title" content="Butts Games - Web Games Hub" />
-    <meta property="og:description" content="Play our collection of web-based games. Puzzles, cards, and more browser games from Butts Studios." />
-    <meta property="og:image" content="https://portal.buttsstudios.com/og-image.jpg" />
+    <meta property="og:description" content="Play our collection of browser games: puzzles, cards and more from Butts Studios. Try each game, then unlock the full version." />
+    <meta property="og:image" content="https://games.buttsstudios.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Butts Studios" />
@@ -24,10 +24,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@buttsstudios" />
     <meta name="twitter:creator" content="@buttsstudios" />
-    <meta name="twitter:url" content="https://portal.buttsstudios.com/" />
+    <meta name="twitter:url" content="https://games.buttsstudios.com/" />
     <meta name="twitter:title" content="Butts Games - Web Games Hub" />
-    <meta name="twitter:description" content="Play our collection of web-based games. Puzzles, cards, and more browser games from Butts Studios." />
-    <meta name="twitter:image" content="https://portal.buttsstudios.com/og-image.jpg" />
+    <meta name="twitter:description" content="Play our collection of browser games: puzzles, cards and more from Butts Studios. Try each game, then unlock the full version." />
+    <meta name="twitter:image" content="https://games.buttsstudios.com/og-image.jpg" />
 
     <!-- Pinterest -->
     <meta name="pinterest-rich-pin" content="false" />
@@ -83,6 +83,12 @@
         .btn-play:hover { background: var(--bs-accent); }
         .btn-buy { border-color: var(--bs-line); color: var(--bs-bone); }
         .btn-buy:hover { border-color: var(--bs-gold); color: var(--bs-gold); }
+        /* plain-language basics per game (Principal 2026-10-17) */
+        .basics { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; margin: 0; }
+        .basics dt { font-family: var(--bs-display, inherit); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--bs-muted); padding-top: 4px; }
+        .basics dd { margin: 0; font-size: 17px; line-height: 1.45; }
+        .logline .more { display: inline-block; margin-top: 12px; font-family: var(--bs-display, inherit); font-size: 14px; font-weight: 600; color: var(--bs-bone); }
+        @media (max-width: 520px) { .basics { grid-template-columns: minmax(0, 1fr); gap: 2px; } .basics dd { margin-bottom: 8px; } }
         .note { margin-top: 28px; color: var(--bs-muted); font-size: 13px; line-height: 1.5; max-width: 70ch; padding-bottom: clamp(48px, 8vw, 96px); }
 
         @media (max-width: 900px) {
@@ -118,8 +124,8 @@
         <a class="plate" href="https://glb.buttsstudios.com">
           <span class="plate-no">01</span>
           <span class="plate-art"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 114 L114 6 L114 114 Z" fill="currentColor"/><rect x="30" y="30" width="14" height="14" fill="var(--bs-accent)"/></svg></span>
-          <span class="plate-name">GLB</span>
-          <span class="plate-kind">Canvas adventure</span>
+          <span class="plate-name">Glowgrid</span>
+          <span class="plate-kind">Arcade game</span>
           <span class="plate-foot"><span>In the browser · Full game $5</span><span>Play ↗</span></span>
         </a>
         <a class="plate" href="https://cards.buttsstudios.com">
@@ -140,28 +146,55 @@
   </section>
 
   <section class="wrap section">
-    <div class="section-head"><h2>The index</h2><p>Every game, what it is, and what the one-time unlock opens.</p></div>
+    <div class="section-head"><h2>The index</h2><p>Every game in plain terms: the goal, what it costs and what you earn.</p></div>
     <ol class="slate">
         <li class="title-row">
           <span class="no">01</span>
-          <div><h3>GLB</h3><div class="kind">Canvas adventure</div></div>
-          <p class="logline">A canvas game for the browser: move with the arrow keys or WASD, collect what's on the board and avoid the obstacles.</p>
+          <div><h3>Glowgrid</h3><div class="kind">Arcade game</div></div>
+          <div class="logline">
+            <dl class="basics">
+              <dt>Goal</dt><dd>Steer your light to collect every green circle on each level.</dd>
+              <dt>You control</dt><dd>Your light. Move it with the arrow keys or W, A, S and D, or drag on the board.</dd>
+              <dt>Cost</dt><dd>You get 3 lives a run. Today&rsquo;s run and Endless levels 1 to 5 are open to everyone. The full game, $5 one-time, opens every Endless level after 5.</dd>
+              <dt>You earn</dt><dd>Points for each light, more for quick chains and fast clears. Points have no cash value.</dd>
+              <dt>The hard part</dt><dd>Red squares cost a life when they touch you. They get faster each level, and a purple one chases you from level 4.</dd>
+            </dl>
+            <a class="more" href="https://glb.buttsstudios.com/#how-to-play">Full how to play</a>
+          </div>
           <div class="acts"><a class="btn btn-play" href="https://glb.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_GLB_5__">Unlock Full: $5 one-time</a></div>
         </li>
         <li class="title-row">
           <span class="no">02</span>
           <div><h3>Card Battle</h3><div class="kind">Strategy card game</div></div>
-          <p class="logline">Six cards each, six prizes on the table. You and the opponent choose at the same moment; the higher card takes the points. Three opponents and a ladder of rivals with house rules.</p>
+          <div class="logline">
+            <dl class="basics">
+              <dt>Goal</dt><dd>Win more points than your opponent over six rounds.</dd>
+              <dt>You control</dt><dd>Which card you play each round. You both pick at the same time, and the stronger card takes the prize.</dd>
+              <dt>Cost</dt><dd>5 matches a day. Premium, $3 one-time, gives unlimited matches, the Master opponent and the full rival ladder.</dd>
+              <dt>You earn</dt><dd>Points for each prize you win, a score for the Top scores list, and card backs from rivals. Points have no cash value.</dd>
+              <dt>The hard part</dt><dd>Both hands hold the same six ranks, so every big card you spend early is gone later.</dd>
+            </dl>
+            <a class="more" href="https://cards.buttsstudios.com/#how-to-play">Full how to play</a>
+          </div>
           <div class="acts"><a class="btn btn-play" href="https://cards.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_CARDS_3__">Unlock Full: $3 one-time</a></div>
         </li>
         <li class="title-row">
           <span class="no">03</span>
           <div><h3>Sliding Numbers</h3><div class="kind">Logic puzzle</div></div>
-          <p class="logline">The classic sliding-tile puzzle, set cleanly: put the numbers back in order in as few moves as you can.</p>
+          <div class="logline">
+            <dl class="basics">
+              <dt>Goal</dt><dd>Slide the tiles back into number order in as few moves as you can.</dd>
+              <dt>You control</dt><dd>Which tile slides into the empty space. Tap, swipe or use the arrow keys.</dd>
+              <dt>Cost</dt><dd>5 practice games a day, and the Daily puzzle is always open. The full game, $3 one-time, gives unlimited games and the 5x5 board.</dd>
+              <dt>You earn</dt><dd>Up to 3 stars a solve, personal bests, a leaderboard spot and a daily streak. None of it has cash value.</dd>
+              <dt>The hard part</dt><dd>Each slide moves tiles you already placed, and every move counts.</dd>
+            </dl>
+            <a class="more" href="https://puzzle.buttsstudios.com/#how-to-play">Full how to play</a>
+          </div>
           <div class="acts"><a class="btn btn-play" href="https://puzzle.buttsstudios.com">Try It</a><a class="btn btn-buy" href="__NEW_PAYMENT_LINK_PUZZLE_3__">Unlock Full: $3 one-time</a></div>
         </li>
     </ol>
-    <p class="note">The one-time unlock is verified with the payment and kept in that browser.</p>
+    <p class="note">The one-time unlock is verified with the payment and kept in that browser. <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/refunds">Refunds</a></p>
   </section>
 </main>
 <!--bs:foot--><div class="bs-foot" role="contentinfo"><div class="bs-foot-in"><div><a class="bs-mark" href="https://buttsstudios.com/" aria-label="Butts Studios home"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="12"><rect x="10" y="10" width="80" height="80"/><path d="M10 10 L90 90 M90 10 L10 90"/></g></svg><span>Butts Studios</span></a><div class="bs-foot-line">Made of story.</div></div><div class="bs-foot-cols" role="navigation" aria-label="Butts Studios"><a href="https://buttsstudios.com/books.html">Books</a><a href="https://buttsstudios.com/video.html">Video</a><a href="https://buttsstudios.com/games.html" aria-current="true">Games</a><a href="https://buttsstudios.com/">Studio</a><a href="https://www.instagram.com/buttsstudios/" target="_blank" rel="noopener">Instagram</a></div></div><div class="bs-foot-base"><span>© 2026 Butts Studios</span><span class="bs-legal"><a href="https://buttsstudios.com/terms.html">Terms</a><a href="https://buttsstudios.com/refunds.html">Refunds</a><a href="https://buttsstudios.com/privacy.html">Privacy</a></span></div></div><!--/bs:foot-->
