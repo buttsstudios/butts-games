@@ -1,5 +1,5 @@
 {
-  "buildCommand": null,
+  "buildCommand": "node scripts/copy-lint.mjs && rm -f scripts/copy-lint.mjs copy-lint.config.json",
   "outputDirectory": ".",
   "framework": null,
   "installCommand": null,

@@ -1,0 +1,9 @@
+{
+  "allow": [
+    {
+      "file": "index.html",
+      "re": "buy\\.stripe\\.com/(dRmaEQb0|fZuaEQgl|5kQ3co1q)",
+      "why": "label bound to the live Payment Link it opens ($4.99/$2.99); $5/$3 staged on design/next-level-2026-10-16, Payment Link for the Principal"
+    }
+  ]
+}
