@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+    }
+    .portal-icon {
+      width: 120px;
+      height: 120px;
+      border: 3px solid #9C27B0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .portal-icon::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px dashed #9C27B0;
+      border-radius: 50%;
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .portal-symbol {
+      font-size: 48px;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    h1 em { color: #9C27B0; font-style: normal; }
+    p {
+      font-size: 20px;
+      color: #888;
+      text-align: center;
+    }
+    .games {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      color: #666;
+      font-size: 14px;
+    }
+    .badge {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      font-size: 14px;
+      color: #555;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-icon">
+    <div class="portal-symbol">🌌</div>
+  </div>
+  <h1>Butts Games<br><em>Web Games Hub</em></h1>
+  <p>Browser games from Butts Studios</p>
+  <div class="games">🃏 Cards · 🧩 Puzzle · 🎮 GLB</div>
+  <div class="badge">portal.buttsstudios.com</div>
+</body>
+</html>
